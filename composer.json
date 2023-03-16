@@ -1,0 +1,33 @@
+{
+  "name": "crochetfeve0251/rocket-launcher-database",
+  "description": "Database library for psr4 plugin",
+  "minimum-stability": "stable",
+  "type": "library",
+  "authors": [
+    {
+      "name": "coquardcyr",
+      "email": "coquardcyr@gmail.com"
+    }
+  ],
+  "require": {
+    "crochetfeve0251/rocket-launcher-builder": "^1.0.0",
+    "berlindb/core": "^2.0",
+    "composer/composer": "^2.5"
+  },
+  "require-dev": {
+    "brain/monkey": "^2.0",
+    "phpunit/phpunit": "^7.5 || ^8 || ^9",
+    "wp-media/phpunit": "^3.0",
+    "mikey179/vfsstream": "^1.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "RocketLauncherDatabase\\": "inc/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "RocketLauncherDatabase\\Tests\\": "tests/"
+    }
+  }
+}
