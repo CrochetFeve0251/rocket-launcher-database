@@ -63,7 +63,15 @@ class ServiceProvider implements ServiceProviderInterface
 
         $this->renderer = new Renderer($template_filesystem, '/templates/');
 
-        $this->app_renderer = new Renderer($this->filesystem, '/templates/');
+        $adapter = new Local(
+        // Determine root directory
+            $app_dir
+        );
+
+        // The FilesystemOperator
+        $app_filesystem = new Filesystem($adapter);
+
+        $this->app_renderer = new Renderer($app_filesystem, '/templates/');
     }
 
 
@@ -71,9 +79,10 @@ class ServiceProvider implements ServiceProviderInterface
     {
         $project_manager = new ProjectManager($this->filesystem);
         $class_generator = new ClassGenerator($this->filesystem, $this->renderer, $this->configs);
-        $provider_manager = new ProviderManager($app, $this->filesystem, $class_generator, $this->app_renderer, new BuilderProjectManager($this->filesystem));
+        $builder_project_manager = new BuilderProjectManager($this->filesystem);
+        $provider_manager = new ProviderManager($app, $this->filesystem, $class_generator, $this->app_renderer, $builder_project_manager);
         $app->add(new InstallCommand($project_manager));
-        $app->add(new GenerateTableCommand($class_generator, $this->configs, $provider_manager));
+        $app->add(new GenerateTableCommand($class_generator, $this->configs, $provider_manager, $builder_project_manager));
 
         return $app;
     }
