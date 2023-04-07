@@ -1,8 +1,8 @@
 <?php
 
-namespace RocketLauncherDatabase\Tests\Integration\inc\Commands\InstallCommand;
+namespace LaunchpadBerlinDB\Tests\Integration\inc\Commands\InstallCommand;
 
-use RocketLauncherDatabase\Tests\Integration\TestCase;
+use LaunchpadBerlinDB\Tests\Integration\TestCase;
 
 class Test_Execute extends TestCase
 {

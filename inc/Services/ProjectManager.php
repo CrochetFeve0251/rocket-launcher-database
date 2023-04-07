@@ -1,6 +1,6 @@
 <?php
 
-namespace RocketLauncherDatabase\Services;
+namespace LaunchpadBerlinDB\Services;
 
 use League\Flysystem\Filesystem;
 use Composer\Command\InstallCommand;

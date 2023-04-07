@@ -1,6 +1,6 @@
 {
-  "name": "crochetfeve0251/rocket-launcher-database",
-  "description": "Database library for psr4 plugin",
+  "name": "wp-launchpad/berlindb",
+  "description": "BerlinDB library for Launchpad framework",
   "minimum-stability": "stable",
   "type": "library",
   "authors": [
@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "crochetfeve0251/rocket-launcher-builder": "^1.0.0",
+    "wp-launchpad/cli": "^1.0.1",
     "berlindb/core": "^2.0",
     "composer/composer": "^2.5"
   },
@@ -22,12 +22,19 @@
   },
   "autoload": {
     "psr-4": {
-      "RocketLauncherDatabase\\": "inc/"
+      "LaunchpadBerlinDB\\": "inc/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "RocketLauncherDatabase\\Tests\\": "tests/"
+      "LaunchpadBerlinDB\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "launchpad": {
+      "provider" : "LaunchpadBerlinDB\\ServiceProvider",
+      "command": "berlindb:initialize",
+      "install": true
     }
   }
 }

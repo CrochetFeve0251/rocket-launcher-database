@@ -1,10 +1,10 @@
 <?php
 
-namespace RocketLauncherDatabase\Commands;
+namespace LaunchpadBerlinDB\Commands;
 
-use RocketLauncherBuilder\Commands\Command;
-use RocketLauncherBuilder\Entities\Configurations;
-use RocketLauncherDatabase\Services\ProjectManager;
+use LaunchpadCLI\Commands\Command;
+use LaunchpadCLI\Entities\Configurations;
+use LaunchpadBerlinDB\Services\ProjectManager;
 
 class InstallCommand extends Command
 {
@@ -16,7 +16,7 @@ class InstallCommand extends Command
 
     public function __construct(ProjectManager $project_manager)
     {
-        parent::__construct('database:initialize', 'Initialize the database library');
+        parent::__construct('berlindb:initialize', 'Initialize the berlinDB library');
 
         $this->project_manager = $project_manager;
 
@@ -24,7 +24,7 @@ class InstallCommand extends Command
             // Usage examples:
             ->usage(
             // append details or explanation of given example with ` ## ` so they will be uniformly aligned when shown
-                '<bold>  $0 database:initialize</end> ## Initialize the database library<eol/>'
+                '<bold>  $0 berlindb:initialize</end> ## Initialize the database library<eol/>'
             );
     }
 

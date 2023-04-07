@@ -1,19 +1,19 @@
 <?php
 
-namespace RocketLauncherDatabase;
+namespace LaunchpadBerlinDB;
 
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
-use RocketLauncherBuilder\App;
-use RocketLauncherBuilder\Entities\Configurations;
-use RocketLauncherBuilder\ServiceProviders\ServiceProviderInterface;
-use RocketLauncherBuilder\Services\ClassGenerator;
-use RocketLauncherBuilder\Services\ProviderManager;
-use RocketLauncherBuilder\Templating\Renderer;
-use RocketLauncherDatabase\Commands\GenerateTableCommand;
-use RocketLauncherDatabase\Commands\InstallCommand;
-use RocketLauncherDatabase\Services\ProjectManager;
-use RocketLauncherBuilder\Services\ProjectManager as BuilderProjectManager;
+use LaunchpadCLI\App;
+use LaunchpadCLI\Entities\Configurations;
+use LaunchpadCLI\ServiceProviders\ServiceProviderInterface;
+use LaunchpadCLI\Services\ClassGenerator;
+use LaunchpadCLI\Services\ProviderManager;
+use LaunchpadCLI\Templating\Renderer;
+use LaunchpadBerlinDB\Commands\GenerateTableCommand;
+use LaunchpadBerlinDB\Commands\InstallCommand;
+use LaunchpadBerlinDB\Services\ProjectManager;
+use LaunchpadCLI\Services\ProjectManager as BuilderProjectManager;
 class ServiceProvider implements ServiceProviderInterface
 {
 
