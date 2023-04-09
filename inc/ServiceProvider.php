@@ -79,10 +79,9 @@ class ServiceProvider implements ServiceProviderInterface
     {
         $project_manager = new ProjectManager($this->filesystem);
         $class_generator = new ClassGenerator($this->filesystem, $this->renderer, $this->configs);
-        $builder_project_manager = new BuilderProjectManager($this->filesystem);
-        $provider_manager = new ProviderManager($app, $this->filesystem, $class_generator, $this->app_renderer, $builder_project_manager);
+        $provider_manager = new ProviderManager($app, $this->filesystem, $class_generator, $this->app_renderer);
         $app->add(new InstallCommand($project_manager));
-        $app->add(new GenerateTableCommand($class_generator, $this->configs, $provider_manager, $builder_project_manager));
+        $app->add(new GenerateTableCommand($class_generator, $this->configs, $provider_manager, $project_manager));
 
         return $app;
     }

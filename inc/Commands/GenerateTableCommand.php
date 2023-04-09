@@ -3,10 +3,10 @@
 namespace LaunchpadBerlinDB\Commands;
 
 use Ahc\Cli\IO\Interactor;
+use LaunchpadBerlinDB\Services\ProjectManager;
 use LaunchpadCLI\Commands\Command;
 use LaunchpadCLI\Entities\Configurations;
 use LaunchpadCLI\Services\ClassGenerator;
-use LaunchpadCLI\Services\ProjectManager;
 use LaunchpadCLI\Services\ProviderManager;
 
 /**
@@ -66,9 +66,9 @@ class GenerateTableCommand extends Command
                 '<bold>  $0 table</end> <comment>my_table MyFolder/Path</end> ## Create classes for the table<eol/>'
             );
 
-        /*if($this->project_manager->is_resolver_present()) {
+        if($this->project_manager->is_resolver_present()) {
             $this->option('-p --provider', 'Type from the provider');
-        }*/
+        }
     }
 
     /**

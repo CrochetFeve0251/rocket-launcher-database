@@ -3,7 +3,6 @@
 namespace LaunchpadBerlinDB\Commands;
 
 use LaunchpadCLI\Commands\Command;
-use LaunchpadCLI\Entities\Configurations;
 use LaunchpadBerlinDB\Services\ProjectManager;
 
 class InstallCommand extends Command
