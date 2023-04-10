@@ -13,7 +13,7 @@ use LaunchpadCLI\Templating\Renderer;
 use LaunchpadBerlinDB\Commands\GenerateTableCommand;
 use LaunchpadBerlinDB\Commands\InstallCommand;
 use LaunchpadBerlinDB\Services\ProjectManager;
-use LaunchpadCLI\Services\ProjectManager as BuilderProjectManager;
+use LaunchpadCLI\Services\ProjectManager as CLIProjectManager;
 class ServiceProvider implements ServiceProviderInterface
 {
 
@@ -79,7 +79,9 @@ class ServiceProvider implements ServiceProviderInterface
     {
         $project_manager = new ProjectManager($this->filesystem);
         $class_generator = new ClassGenerator($this->filesystem, $this->renderer, $this->configs);
-        $provider_manager = new ProviderManager($app, $this->filesystem, $class_generator, $this->app_renderer);
+        $project_manager_cli = new CLIProjectManager($this->filesystem);
+
+        $provider_manager = new ProviderManager($app, $this->filesystem, $class_generator, $this->app_renderer, $project_manager_cli);
         $app->add(new InstallCommand($project_manager));
         $app->add(new GenerateTableCommand($class_generator, $this->configs, $provider_manager, $project_manager));
 
