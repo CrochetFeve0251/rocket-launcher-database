@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "wp-launchpad/cli": "^1.0.2-alpha",
+    "wp-launchpad/cli": "^1.0.1",
     "berlindb/core": "^2.0",
     "composer/composer": "^2.5"
   },

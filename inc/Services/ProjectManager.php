@@ -89,7 +89,6 @@ class ProjectManager
     {
         $content = $this->filesystem->read(self::COMPOSER_FILE);
         $json = json_decode($content,true);
-
         return $json && key_exists('extra', $json) && key_exists('mozart', $json['extra']) && key_exists('packages', $json['extra']['mozart']) && in_array('wp-launchpad/autoresolver', $json['extra']['mozart']['packages']);
     }
 }
