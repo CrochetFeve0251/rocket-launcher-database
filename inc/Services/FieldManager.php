@@ -28,18 +28,16 @@ class FieldManager
     }
 
     public function render(FileType $type): string {
-
-        $fields = array_map(function (Field $field) {
-            return [
+        return array_map(function (Field $field) use ($type) {
+            $field = [
                'type' => $field->get_type(),
                'name' => $field->get_name(),
                'nullable' => $field->is_nullable(),
             ];
+            return $this->renderer->apply_template($this->get_right_template($type), [
+                'field' => $field
+            ]);
         }, $this->fields);
-
-        return $this->renderer->apply_template($this->get_right_template($type), [
-            'fields' => $fields
-        ]);
     }
 
     protected function get_right_template(FileType $type): string {
