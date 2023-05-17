@@ -1,7 +1,7 @@
 {% if '{{ field['type'] }}' === 'datetime' : %}
-    // LAST_ACCESSED column.
+    // {{ field['name'] }} column.
     [
-        'name'       => 'last_accessed',
+        'name'       => '{{ field['name'] }}',
         'type'       => 'timestamp',
         'default'    => '0000-00-00 00:00:00',
         'created'    => true,
@@ -10,9 +10,9 @@
     ],
 {% endif %}
 {% if '{{ field['type'] }}' === 'string' : %}
-    // URL column.
+    // {{ field['name'] }} column.
     [
-        'name'       => 'url',
+        'name'       => '{{ field['name'] }}',
         'type'       => 'varchar',
         'length'     => '255',
         'default'    => '',
@@ -22,9 +22,9 @@
     ],
 {% endif %}
 {% if '{{ field['type'] }}' === 'text' : %}
-    // CSS column.
+    // {{ field['name'] }} column.
     [
-        'name'       => 'css',
+        'name'       => '{{ field['name'] }}',
         'type'       => 'longtext',
         'default'    => null,
         'cache_key'  => false,
@@ -33,9 +33,9 @@
     ],
 {% endif %}
 {% if '{{ field['type'] }}' === 'boolean' : %}
-    // IS_MOBILE column.
+    // {{ field['name'] }} column.
     [
-        'name'       => 'is_mobile',
+        'name'       => '{{ field['name'] }}',
         'type'       => 'tinyint',
         'length'     => '1',
         'default'    => 0,
@@ -45,9 +45,9 @@
     ],
 {% endif %}
 {% if '{{ field['type'] }}' === 'int' : %}
-    // RETRIES column.
+    // {{ field['name'] }} column.
     [
-        'name'       => 'retries',
+        'name'       => '{{ field['name'] }}',
         'type'       => 'int',
         'length'     => '10',
         'default'    => 0,
@@ -57,9 +57,9 @@
     ],
 {% endif %}
 {% if '{{ field['type'] }}' === 'float' : %}
-    // RETRIES column.
+    // {{ field['name'] }} column.
     [
-        'name'       => 'retries',
+        'name'       => '{{ field['name'] }}',
         'type'       => 'float',
         'length'     => '10',
         'default'    => 0,

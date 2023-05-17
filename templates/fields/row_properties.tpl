@@ -1,6 +1,5 @@
 /**
-* Last modified time
 *
-* @var int
+* @var {{ field['type'] }}
 */
-public $modified;
+public ${{ field['name'] }};
