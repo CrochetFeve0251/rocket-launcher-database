@@ -2,6 +2,8 @@
 
 namespace LaunchpadBerlinDB;
 
+use LaunchpadBerlinDB\Entities\FileTypeFactory;
+use LaunchpadBerlinDB\Services\FieldManager;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
 use LaunchpadCLI\App;
@@ -80,9 +82,11 @@ class ServiceProvider implements ServiceProviderInterface
         $project_manager = new ProjectManager($this->filesystem);
         $class_generator = new ClassGenerator($this->filesystem, $this->renderer, $this->configs);
         $project_manager_cli = new CLIProjectManager($this->filesystem);
+        $field_manager = new FieldManager($this->renderer);
+        $file_type_factory = new FileTypeFactory();
 
         $provider_manager = new ProviderManager($app, $this->filesystem, $class_generator, $this->app_renderer, $project_manager_cli);
-        $app->add(new GenerateTableCommand($class_generator, $this->configs, $provider_manager, $project_manager));
+        $app->add(new GenerateTableCommand($class_generator, $this->configs, $provider_manager, $project_manager, $field_manager, $file_type_factory));
 
         return $app;
     }

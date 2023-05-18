@@ -24,7 +24,7 @@ class Field
      * @param Name $name
      * @param bool $nullable
      */
-    public function __construct(Type $type, Name $name, bool $nullable)
+    public function __construct(Type $type, Name $name, bool $nullable = false)
     {
         $this->type = $type;
         $this->name = $name;
