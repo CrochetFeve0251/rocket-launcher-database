@@ -23,7 +23,7 @@ class {{ class_name }} extends Schema {
             'primary'  => true,
             'sortable' => true,
         ],
-
+{{ fields }}
         // MODIFIED column.
         [
             'name'       => 'modified',
