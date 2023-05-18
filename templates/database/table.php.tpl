@@ -53,8 +53,7 @@ class {{ class_name }} extends Table {
      */
     protected function set_schema() {
         $this->schema = "
-			id               bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-{{ fields }}
+			id               bigint(20) unsigned NOT NULL AUTO_INCREMENT,{{ fields }}
 			modified         timestamp           NOT NULL default '0000-00-00 00:00:00',
 			last_accessed    timestamp           NOT NULL default '0000-00-00 00:00:00',
 			PRIMARY KEY (id),

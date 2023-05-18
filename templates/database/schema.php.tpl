@@ -22,8 +22,8 @@ class {{ class_name }} extends Schema {
             'extra'    => 'auto_increment',
             'primary'  => true,
             'sortable' => true,
-        ],
-{{ fields }}
+        ],{{ fields }}
+
         // MODIFIED column.
         [
             'name'       => 'modified',

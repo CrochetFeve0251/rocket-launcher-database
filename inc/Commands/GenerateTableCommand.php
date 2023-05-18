@@ -78,7 +78,7 @@ class GenerateTableCommand extends Command
         $this
             ->argument('[name]', 'Name of the table')
             ->argument('[folder]', 'Full path to the table folder')
-            ->option('--fields -f', 'Create fields')
+            ->option('-f --fields', 'Create fields')
             // Usage examples:
             ->usage(
             // append details or explanation of given example with ` ## ` so they will be uniformly aligned when shown

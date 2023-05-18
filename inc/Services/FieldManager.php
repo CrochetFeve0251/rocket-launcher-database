@@ -72,10 +72,10 @@ class FieldManager
 
     protected function get_right_template(FileType $type): string {
         $mapping = [
-            FileType::SCHEMA => 'fields/schema',
-            FileType::ROW => 'fields/row',
-            FileType::ROW_PROPERTIES => 'fields/row_properties',
-            FileType::TABLE => 'fields/table',
+            FileType::SCHEMA => 'fields/schema.tpl',
+            FileType::ROW => 'fields/row.tpl',
+            FileType::ROW_PROPERTIES => 'fields/row_properties.tpl',
+            FileType::TABLE => 'fields/table.tpl',
         ];
 
         return $mapping[$type->get_value()];

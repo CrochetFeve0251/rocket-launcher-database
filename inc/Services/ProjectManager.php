@@ -3,12 +3,7 @@
 namespace LaunchpadBerlinDB\Services;
 
 use League\Flysystem\Filesystem;
-use Composer\Command\InstallCommand;
-use Composer\EventDispatcher\ScriptExecutionException;
-use Composer\IO\NullIO;
-use Composer\Factory;
-use Symfony\Component\Console\Input\ArrayInput;
-use Symfony\Component\Console\Output\BufferedOutput;
+
 class ProjectManager
 {
     CONST COMPOSER_FILE = 'composer.json';

@@ -13,8 +13,7 @@ class {{ class_name }} extends Row {
      */
     public function __construct( $item ) {
         parent::__construct( $item );
-        $this->id            = (int) $this->id;
-{{ fields }}
+        $this->id            = (int) $this->id;{{ fields }}
         $this->modified      = false === $this->modified ? 0 : strtotime( $this->modified );
         $this->last_accessed = false === $this->last_accessed ? 0 : strtotime( $this->last_accessed );
     }
