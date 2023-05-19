@@ -144,14 +144,18 @@ class GenerateTableCommand extends Command
 
         foreach ($files as $template => $file) {
 
-            $type = $this->file_type_factory->make($file);
+            $type = $this->file_type_factory->make($template);
 
             $fields = $this->fields_manager->render($type);
 
             $property_fields = '';
 
-            if('database/row.php.tpl' === $file) {
+            if('database/row.php.tpl' === $template) {
                 $property_fields = $this->fields_manager->render(new FileType(FileType::ROW_PROPERTIES));
+            }
+
+            if($fields) {
+                $fields = "\n$fields";
             }
 
             $path = $this->class_generator->generate($template, $file, [

@@ -151,8 +151,6 @@ return [
                 'provider_path' => '/inc/Engine/Test/Database/ServiceProvider.php',
                 'plugin_path' => '/inc/Plugin.php',
                 'provider_exists' => false,
-                'composer_path' => 'composer.json',
-                'composer_content' => file_get_contents(ROCKER_LAUNCHER_DATABASE_TESTS_FIXTURES_DIR . '/files/composer_autoresolver.json'),
             ],
             'expected' => [
                 'query_path' => '/inc/Engine/Test/Database/Queries/MyTable.php',
@@ -160,10 +158,10 @@ return [
                 'table_path' => '/inc/Engine/Test/Database/Tables/MyTable.php',
                 'schema_path' => '/inc/Engine/Test/Database/Schemas/MyTable.php',
                 'query_content' => file_get_contents(__DIR__ . '/files/query.php'),
-                'row_content' => file_get_contents(__DIR__ . '/files/row.php'),
-                'table_content' => file_get_contents(__DIR__ . '/files/table.php'),
-                'schema_content' => file_get_contents(__DIR__ . '/files/schema.php'),
-                'provider_content' => file_get_contents(__DIR__ . '/files/autoresolver.php'),
+                'row_content' => file_get_contents(__DIR__ . '/files/fields/row.php'),
+                'table_content' => file_get_contents(__DIR__ . '/files/fields/table.php'),
+                'schema_content' => file_get_contents(__DIR__ . '/files/fields/schema.php'),
+                'provider_content' => file_get_contents(__DIR__ . '/files/provider.php'),
                 'plugin_content' => file_get_contents(__DIR__ . '/files/plugin.php')
             ]
         ],

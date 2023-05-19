@@ -63,11 +63,9 @@ class FieldManager
                'name' => $field->get_name(),
                'nullable' => $field->is_nullable(),
             ];
-            return $this->renderer->apply_template($this->get_right_template($type), [
-                'field' => $field
-            ]);
+            return $this->renderer->apply_template($this->get_right_template($type), $field);
         }, $this->fields);
-        return join('', $fields);
+        return join("\n", $fields);
     }
 
     protected function get_right_template(FileType $type): string {
