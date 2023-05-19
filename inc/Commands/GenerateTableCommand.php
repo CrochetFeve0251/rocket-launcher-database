@@ -3,6 +3,9 @@
 namespace LaunchpadBerlinDB\Commands;
 
 use Ahc\Cli\IO\Interactor;
+use LaunchpadBerlinDB\Entities\FileType;
+use LaunchpadBerlinDB\Entities\FileTypeFactory;
+use LaunchpadBerlinDB\Services\FieldManager;
 use LaunchpadBerlinDB\Services\ProjectManager;
 use LaunchpadCLI\Commands\Command;
 use LaunchpadCLI\Entities\Configurations;
@@ -42,13 +45,26 @@ class GenerateTableCommand extends Command
     protected $project_manager;
 
     /**
+     * @var FieldManager
+     */
+    protected $fields_manager;
+
+    /**
+     * @var FileTypeFactory
+     */
+    protected $file_type_factory;
+
+    /**
      * Instantiate the class.
      *
      * @param ClassGenerator $class_generator Class generator.
      * @param Configurations $configurations Configuration from the project.
      * @param ProviderManager $service_provider_manager Handle operations with service providers.
+     * @param ProjectManager $project_manager
+     * @param FieldManager $fields_manager
+     * @param FileTypeFactory $file_type_factory
      */
-    public function __construct(ClassGenerator $class_generator, Configurations $configurations, ProviderManager $service_provider_manager, ProjectManager $project_manager)
+    public function __construct(ClassGenerator $class_generator, Configurations $configurations, ProviderManager $service_provider_manager, ProjectManager $project_manager, FieldManager $fields_manager, FileTypeFactory $file_type_factory)
     {
         parent::__construct('table', 'Generate table classes');
 
@@ -56,10 +72,13 @@ class GenerateTableCommand extends Command
         $this->configurations = $configurations;
         $this->service_provider_manager = $service_provider_manager;
         $this->project_manager = $project_manager;
+        $this->fields_manager = $fields_manager;
+        $this->file_type_factory = $file_type_factory;
 
         $this
             ->argument('[name]', 'Name of the table')
             ->argument('[folder]', 'Full path to the table folder')
+            ->option('-f --fields', 'Create fields')
             // Usage examples:
             ->usage(
             // append details or explanation of given example with ` ## ` so they will be uniformly aligned when shown
@@ -98,8 +117,15 @@ class GenerateTableCommand extends Command
      *
      * @return void
      */
-    public function execute($name, $folder, $provider)
+    public function execute($name, $folder, $provider, $fields)
     {
+
+        if( ! $fields ) {
+            $fields = '';
+        }
+
+        $this->fields_manager->parse($fields);
+
         $io = $this->app()->io();
 
         $class_name = $this->class_generator->snake_to_camel_case($name);
@@ -117,11 +143,28 @@ class GenerateTableCommand extends Command
         ];
 
         foreach ($files as $template => $file) {
+
+            $type = $this->file_type_factory->make($template);
+
+            $fields = $this->fields_manager->render($type);
+
+            $property_fields = '';
+
+            if('database/row.php.tpl' === $template) {
+                $property_fields = $this->fields_manager->render(new FileType(FileType::ROW_PROPERTIES));
+            }
+
+            if($fields) {
+                $fields = "\n$fields";
+            }
+
             $path = $this->class_generator->generate($template, $file, [
                 'namespace_database' => $this->configurations->getBaseNamespace() . 'Database',
                 'table' => $name,
                 'plural' => $name . 's',
                 'alias' => $name,
+                'fields' => $fields,
+                'property_fields' => $property_fields,
                 'date' => (new \DateTime())->format('Ymd')
             ]);
 

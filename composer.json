@@ -34,7 +34,10 @@
     "launchpad": {
       "provider" : "LaunchpadBerlinDB\\ServiceProvider",
       "command": "berlindb:initialize",
-      "install": true
+      "install": true,
+      "libraries": {
+        "berlindb/core": "^2.0"
+      }
     }
   }
 }

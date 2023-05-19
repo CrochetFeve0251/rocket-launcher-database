@@ -1,10 +1,10 @@
 <?php
 
-namespace {{ namespace }};
+namespace PSR2Plugin\Engine\Test\Database\Schemas;
 
-use {{ base_namespace }}Dependencies\Database\Schema;
+use PSR2Plugin\Dependencies\Database\Schema;
 
-class {{ class_name }} extends Schema {
+class MyTable extends Schema {
 
     /**
      * Array of database column objects
@@ -22,7 +22,28 @@ class {{ class_name }} extends Schema {
             'extra'    => 'auto_increment',
             'primary'  => true,
             'sortable' => true,
-        ],{{ fields }}
+        ],
+
+        // name column.
+        [
+            'name'       => 'name',
+            'type'       => 'varchar',
+            'length'     => '255',
+            'default'    => '',
+            'cache_key'  => true,
+            'searchable' => true,
+            'sortable'   => true,
+        ],
+
+        // birthday column.
+        [
+            'name'       => 'birthday',
+            'type'       => 'timestamp',
+            'default'    => '0000-00-00 00:00:00',
+            'created'    => true,
+            'date_query' => true,
+            'sortable'   => true,
+        ],
 
         // MODIFIED column.
         [

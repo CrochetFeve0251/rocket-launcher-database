@@ -1,10 +1,10 @@
 <?php
 
-namespace {{ namespace }};
+namespace PSR2Plugin\Engine\Test\Database\Tables;
 
-use {{ base_namespace }}Dependencies\Database\Table;
+use PSR2Plugin\Dependencies\Database\Table;
 
-class {{ class_name }} extends Table {
+class MyTable extends Table {
 
     /**
      * Hook into queries, admin screens, and more!
@@ -37,7 +37,7 @@ class {{ class_name }} extends Table {
      *
      * @var int
      */
-    protected $version = {{ date }};
+    protected $version = 20230519;
 
     /**
      * Key => value array of versions => methods.
@@ -53,7 +53,9 @@ class {{ class_name }} extends Table {
      */
     protected function set_schema() {
         $this->schema = "
-			id               bigint(20) unsigned NOT NULL AUTO_INCREMENT,{{ fields }}
+			id               bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+			name           varchar(255)        NOT NULL default '',
+			birthday    timestamp           NOT NULL default '0000-00-00 00:00:00',			
 			modified         timestamp           NOT NULL default '0000-00-00 00:00:00',
 			last_accessed    timestamp           NOT NULL default '0000-00-00 00:00:00',
 			PRIMARY KEY (id),
