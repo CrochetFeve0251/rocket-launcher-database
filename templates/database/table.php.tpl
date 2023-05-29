@@ -23,14 +23,14 @@ class {{ class_name }} extends Table {
      *
      * @var string
      */
-    protected $name = 'wpr_rocket_cache';
+    protected $name = '{{ table }}';
 
     /**
      * Database version key (saved in _options or _sitemeta)
      *
      * @var string
      */
-    protected $db_version_key = 'wpr_rocket_cache_version';
+    protected $db_version_key = '{{ table }}_version';
 
     /**
      * Database version
