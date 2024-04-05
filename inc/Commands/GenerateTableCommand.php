@@ -158,8 +158,10 @@ class GenerateTableCommand extends Command
                 $fields = "\n$fields";
             }
 
+            $database_namespace = implode('\\', array_slice(explode('/', $file), 0, -2));
+
             $path = $this->class_generator->generate($template, $file, [
-                'namespace_database' => $this->configurations->getBaseNamespace() . 'Database',
+                'namespace_database' => $database_namespace,
                 'table' => $name,
                 'plural' => $name . 's',
                 'alias' => $name,
