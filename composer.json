@@ -33,8 +33,6 @@
   "extra": {
     "launchpad": {
       "provider" : "LaunchpadBerlinDB\\ServiceProvider",
-      "command": "berlindb:initialize",
-      "install": true,
       "libraries": {
         "berlindb/core": "^2.0"
       }
