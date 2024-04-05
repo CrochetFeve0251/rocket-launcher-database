@@ -2,9 +2,9 @@
 
 namespace PSR2Plugin\Engine\Sub\Test\Database\Queries;
 
-use PSR2Plugin\Dependencies\Database\Query;
-use PSR2Plugin\Database\Rows\MyTable as Row;
-use PSR2Plugin\Database\Schemas\MyTable as Schema;
+use PSR2Plugin\Dependencies\BerlinDB\Database\Query;
+use PSR2Plugin\Engine\Sub\Test\Database\Rows\MyTable as Row;
+use PSR2Plugin\Engine\Sub\Test\Database\Schemas\MyTable as Schema;
 
 class MyTable extends Query {
 
