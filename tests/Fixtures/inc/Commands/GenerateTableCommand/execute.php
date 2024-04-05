@@ -165,5 +165,31 @@ return [
                 'plugin_content' => file_get_contents(__DIR__ . '/files/plugin.php')
             ]
         ],
+        'generateTableSubnamespacehouldAdapt' => [
+            'config' => [
+                'parameters' => ' --fields string:name,datetime:birthday',
+                'table' => 'my_table',
+                'folder' => 'PSR2Plugin/Engine/Sub/Test',
+                'query_path' => '/inc/Engine/Sub/Test/Database/Queries/MyTable.php',
+                'row_path' => '/inc/Engine/Sub/Test/Database/Rows/MyTable.php',
+                'table_path' => '/inc/Engine/Sub/Test/Database/Tables/MyTable.php',
+                'schema_path' => '/inc/Engine/Sub/Test/Database/Schemas/MyTable.php',
+                'provider_path' => '/inc/Engine/Sub/Test/Database/ServiceProvider.php',
+                'plugin_path' => '/inc/Plugin.php',
+                'provider_exists' => false,
+            ],
+            'expected' => [
+                'query_path' => '/inc/Engine/Sub/Test/Database/Queries/MyTable.php',
+                'row_path' => '/inc/Engine/Sub/Test/Database/Rows/MyTable.php',
+                'table_path' => '/inc/Engine/Sub/Test/Database/Tables/MyTable.php',
+                'schema_path' => '/inc/Engine/Sub/Test/Database/Schemas/MyTable.php',
+                'query_content' => file_get_contents(__DIR__ . '/files/sub/query.php'),
+                'row_content' => file_get_contents(__DIR__ . '/files/sub/row.php'),
+                'table_content' => file_get_contents(__DIR__ . '/files/sub/table.php'),
+                'schema_content' => file_get_contents(__DIR__ . '/files/sub/schema.php'),
+                'provider_content' => file_get_contents(__DIR__ . '/files/sub/provider.php'),
+                'plugin_content' => file_get_contents(__DIR__ . '/files/sub/plugin.php')
+            ]
+        ]
     ]
 ];
