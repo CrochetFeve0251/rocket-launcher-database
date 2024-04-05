@@ -2,7 +2,7 @@
 
 namespace {{ namespace }};
 
-use {{ base_namespace }}Dependencies\Database\Row;
+use {{ base_namespace }}Dependencies\BerlinDB\Database\Row;
 
 class {{ class_name }} extends Row {
 {{ property_fields }}
