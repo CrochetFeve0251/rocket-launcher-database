@@ -2,7 +2,7 @@
 
 namespace PSR2Plugin\Engine\Test\Database\Tables;
 
-use PSR2Plugin\Dependencies\Database\Table;
+use PSR2Plugin\Dependencies\BerlinDB\Database\Table;
 
 class MyTable extends Table {
 
@@ -37,7 +37,7 @@ class MyTable extends Table {
      *
      * @var int
      */
-    protected $version = 20230519;
+    protected $version = {{ date }};
 
     /**
      * Key => value array of versions => methods.

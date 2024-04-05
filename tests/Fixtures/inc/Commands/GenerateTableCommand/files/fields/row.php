@@ -2,7 +2,7 @@
 
 namespace PSR2Plugin\Engine\Test\Database\Rows;
 
-use PSR2Plugin\Dependencies\Database\Row;
+use PSR2Plugin\Dependencies\BerlinDB\Database\Row;
 
 class MyTable extends Row {
     /**

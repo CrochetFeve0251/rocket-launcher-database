@@ -2,7 +2,7 @@
 
 namespace PSR2Plugin\Engine\Test\Database\Queries;
 
-use PSR2Plugin\Dependencies\Database\Query;
+use PSR2Plugin\Dependencies\BerlinDB\Database\Query;
 use PSR2Plugin\Engine\Test\Database\Rows\MyTable as Row;
 use PSR2Plugin\Engine\Test\Database\Schemas\MyTable as Schema;
 
