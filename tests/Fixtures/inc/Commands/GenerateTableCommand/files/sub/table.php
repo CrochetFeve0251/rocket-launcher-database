@@ -1,6 +1,6 @@
 <?php
 
-namespace PSR2Plugin\Engine\Test\Database\Tables;
+namespace PSR2Plugin\Engine\Sub\Test\Database\Tables;
 
 use PSR2Plugin\Dependencies\Database\Table;
 
