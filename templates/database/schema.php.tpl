@@ -2,7 +2,7 @@
 
 namespace {{ namespace }};
 
-use {{ base_namespace }}Dependencies\BerlinDB\Database\Schema;
+use {{ base_namespace }}Dependencies\Database\Schema;
 
 class {{ class_name }} extends Schema {
 

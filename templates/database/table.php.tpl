@@ -2,7 +2,7 @@
 
 namespace {{ namespace }};
 
-use {{ base_namespace }}Dependencies\BerlinDB\Database\Table;
+use {{ base_namespace }}Dependencies\Database\Table;
 
 class {{ class_name }} extends Table {
 

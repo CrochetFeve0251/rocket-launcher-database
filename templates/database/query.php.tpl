@@ -2,7 +2,7 @@
 
 namespace {{ namespace }};
 
-use {{ base_namespace }}Dependencies\BerlinDB\Database\Query;
+use {{ base_namespace }}Dependencies\Database\Query;
 use {{ namespace_database }}\Rows\{{ class_name }} as Row;
 use {{ namespace_database }}\Schemas\{{ class_name }} as Schema;
 
